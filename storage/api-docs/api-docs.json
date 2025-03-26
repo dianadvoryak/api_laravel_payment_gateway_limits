@@ -1,0 +1,124 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/api/",
+            "description": "Base API URL"
+        }
+    ],
+    "paths": {
+        "/callback_url/": {
+            "post": {
+                "tags": [
+                    "payment"
+                ],
+                "summary": "callback url",
+                "operationId": "6d28fefbabd9aaf5bc157673ab6cfbb8",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "example": "SBERBANK|TBANK"
+                                    },
+                                    "merchant_id": {
+                                        "type": "integer",
+                                        "example": 6
+                                    },
+                                    "payment_id": {
+                                        "type": "integer",
+                                        "example": 13
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "example": "completed"
+                                    },
+                                    "amount": {
+                                        "type": "integer",
+                                        "example": 500
+                                    },
+                                    "amount_paid": {
+                                        "type": "integer",
+                                        "example": 500
+                                    },
+                                    "timestamp": {
+                                        "type": "integer",
+                                        "example": 1654103837
+                                    },
+                                    "sign": {
+                                        "type": "string",
+                                        "example": "f027612e0e6cb321ca161de060237eeb97e46000da39d3add08d09074f931728"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "merchant_id": {
+                                            "type": "integer",
+                                            "example": 6
+                                        },
+                                        "payment_id": {
+                                            "type": "integer",
+                                            "example": 13
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "example": "completed"
+                                        },
+                                        "amount": {
+                                            "type": "integer",
+                                            "example": 500
+                                        },
+                                        "amount_paid": {
+                                            "type": "integer",
+                                            "example": 500
+                                        },
+                                        "timestamp": {
+                                            "type": "integer",
+                                            "example": 1654103837
+                                        },
+                                        "sign": {
+                                            "type": "string",
+                                            "example": "f027612e0e6cb321ca161de060237eeb97e46000da39d3add08d09074f931728"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "payment",
+            "description": "payment"
+        }
+    ]
+}
